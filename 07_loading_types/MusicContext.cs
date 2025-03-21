@@ -13,14 +13,11 @@ namespace ht_3
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Data Source= DESKTOP-F5EBSVM\SQLEXPRESS;
-                                Initial Catalog = MusicApp;
-                                Integrated Security=True;
-                                Connect Timeout=2;
-                                Encrypt=False;
-                                Trust Server Certificate=False;
-                                Application Intent=ReadWrite;Multi Subnet Failover=False");
+            
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-F5EBSVM\SQLEXPRESS;
+                                          Initial Catalog=MusicApp;
+                                          Integrated Security=True;
+                                        TrustServerCertificate=True;");
         }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
